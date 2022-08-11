@@ -47,13 +47,11 @@ export default {
   },
   watch:{
     pwInput:{
-      // immediate: true,
       deep: true,
       handler(newValue,_){
-        // console.log(new Number(newValue))
         let temp = ''
         this.ToCDB(newValue).split('').forEach(pw => {
-          // 符号才根据codeTable转换，数字不处理
+          // 符号才根据 codeTable 转换，数字不处理
           if (!(pw < 11)){
             temp += this.codeTable[pw]
           }else{
@@ -87,11 +85,14 @@ export default {
     margin-top: 0.5rem;
     align-self: flex-start;
 
+    background: linear-gradient(to right, #ea9e90, #f5b892);
+    -webkit-background-clip: text;
+    color: transparent;
   }
 }
 
 .inputBox{
-  width: 50%;
+  width: 11rem;
   height: 2rem;
   margin-bottom: 1rem;
   border-radius: 10px;
@@ -101,13 +102,20 @@ export default {
   font-family: Arial;
 }
 
+.inputBox::placeholder{
+  color: #ccc;
+
+  font-family: "Arial Narrow";
+  font-size: 1rem;
+}
+
 .decodedShow{
-  width: 50%;
+  width: 11rem;
   height: 2rem;
   //round border
   border: #747bff 3px solid;
   border-radius: 10px;
-  margin-bottom: 0.2rem;
+  margin-bottom: 0.4rem;
 
   font-family: Arial;
   line-height: 200%;
